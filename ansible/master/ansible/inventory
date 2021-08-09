@@ -1,3 +1,4 @@
+10.250.14.1
 [web]
 host0[1:2] ansible_user=root
 [db]
