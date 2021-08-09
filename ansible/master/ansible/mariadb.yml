@@ -1,0 +1,18 @@
+hosts: web
+taks: 
+  -install Apache2
+   apt:
+     name: apache2
+     state: present
+  - name: copiar fichero
+    copy:
+       src: ./index.html
+       dest: /var/www/html
+  - name: restart_apache2
+    service: name=apache2 state=restarted
+  - hosts: db
+    tasks:
+       - name: install MariaDB
+         apt:
+            name: mariadb-server
+            state: present    
