@@ -1,0 +1,17 @@
+---
+- hosts: web
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+    - name: restart http
+      service:
+        name: apache2
+        state: restarted
+    - name: install index.html
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644' 

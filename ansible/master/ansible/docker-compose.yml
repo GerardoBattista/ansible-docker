@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+  hello:
+    image: 10.250.14.1:5050/gerardod/hello-spring:MAIN-1
+    build: .
+    ports:
+      - "80:8081"
+

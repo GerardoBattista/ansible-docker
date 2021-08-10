@@ -15,7 +15,7 @@
         name: app
         home: /home/app
         generate_ssh_key: no
-        groups: ['docker']
+      groups: ['docker']
         # - docker
     - name: Assert .ssh directory
       file:
@@ -49,16 +49,16 @@
         group: app
         mode: '0644'
     - name: Create .docker Directory
-      file:
-        dest: /home/app/.docker
-        state: directory
+      copy:
+        src: /home/viewadmin/.docker/config.jsom
+        dest: /home/app.docker/config.json
         owner: app
         group: app
-        mode: '0755'
+        mode: '0700'
     - name: Install .docker/config.json
       copy:
-        src: /home/viewadmin/.docker/config.json
+        src: /home/viewadmin/.dokcer/config.json
         dest: /home/app/.docker/config.json
         owner: app
         group: app
-        mode: '0644'
+        mode: '0600'
